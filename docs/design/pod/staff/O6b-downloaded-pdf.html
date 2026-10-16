@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF on phone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#3A3532}
+a{color:#6B3A1F}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; overflow: hidden; background: #3A3532; color: #F2EEEA; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; display: flex; flex-direction: column">
+
+<header style="background: #2A2624; padding: 8px 8px; min-height: 60px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<a href="OfficerReport.dc.html" style="min-width: 60px; min-height: 44px; display: flex; align-items: center; justify-content: center; color: #E7C9A9; font-weight: 600; text-decoration: none">Done</a>
+<div style="display: flex; flex-direction: column; align-items: center; min-width: 0">
+<span style="font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px">CocoaCheck_A-01_2026-10-12.pdf</span>
+<span style="font-size: 12px; color: #BDB3AA">1 page · 412 KB</span>
+</div>
+<span style="min-width: 60px; text-align: center; font-size: 12px; color: #BDB3AA">100%</span>
+</header>
+
+<div style="flex: 1 1 auto; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 12px">
+<div style="width: 366px; height: 518px; overflow: hidden; background: #fff; box-shadow: 0 2px 10px #0006; flex: none">
+<div style="width: 794px; height: 1123px; transform: scale(0.461); transform-origin: top left">
+<dc-import name="ReportA4" hint-size="794px,1123px"></dc-import>
+</div>
+</div>
+<span style="font-size: 13px; color: #CFC6BE">Page 1 of 1 · pinch to zoom</span>
+</div>
+
+<div style="background: #2A2624; padding: 10px 16px 18px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; gap: 10px; align-items: center; background: #E3F1E7; color: #1E5E37; border-radius: 10px; padding: 10px 12px; font-size: 14px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+<span><b>Saved to Downloads.</b> The same A4 page your supervisor sees.</span>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

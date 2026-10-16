@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin dashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="min-height: 100vh; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E7C9A9" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 0 6 4 6 9s-2 9-6 9-6-4-6-9 2-9 6-9z"></path><path d="M12 3v18M8.5 6.5c1 3 1 8 0 11M15.5 6.5c-1 3-1 8 0 11"></path></svg>
+<span style="font-size: 18px; font-weight: 700; letter-spacing: 0.2px">CocoaCheck Sabah</span>
+<span style="font-size: 12px; font-weight: 600; background: #E7C9A9; color: #3A2414; padding: 3px 10px; border-radius: 999px">ADMIN</span>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; font-size: 14px">
+<span>Supervisor: [NAME]</span>
+<a href="#" style="color: #E7C9A9">Log out</a>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 0">
+
+<nav aria-label="Admin menu" style="flex: 1 1 200px; max-width: 240px; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E3D9CE; background: #FCFAF7">
+<a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; background: #F1E4D8; color: #3B2416; font-weight: 600; text-decoration: none">Dashboard</a>
+<a href="#" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Inspections</a>
+<a href="Block.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Blocks</a>
+<a href="TreeHistory.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Trees</a>
+<a href="Disease.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Disease info</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 28px">
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">Dashboard</h1>
+<p style="margin: 0; color: #5E5048">Latest pod inspections across your farm. Severity uses DEMO thresholds.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: #5E5048">Farm
+<select style="font: inherit; font-size: 14px; font-weight: 400; padding: 9px 12px; border: 1px solid #D6C9BB; border-radius: 8px; background: #fff; color: #24180F; min-height: 44px"><option>LKM Tawau Station</option></select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: #5E5048">Period
+<select style="font: inherit; font-size: 14px; font-weight: 400; padding: 9px 12px; border: 1px solid #D6C9BB; border-radius: 8px; background: #fff; color: #24180F; min-height: 44px"><option>October 2026</option></select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: #5E5048">Officer
+<select style="font: inherit; font-size: 14px; font-weight: 400; padding: 9px 12px; border: 1px solid #D6C9BB; border-radius: 8px; background: #fff; color: #24180F; min-height: 44px"><option>All officers</option></select>
+</label>
+</div>
+</div>
+
+<section aria-label="Summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #5E5048">{{k.label}}</span>
+<span style="font-size: 32px; font-weight: 700; color: #24180F">{{k.value}}</span>
+<span style="font-size: 13px; color: #5E5048">{{k.sub}}</span>
+</div>
+</sc-for>
+</section>
+
+<section aria-labelledby="blocks-h" style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<h2 id="blocks-h" style="margin: 0; font-size: 19px; font-weight: 700">Block overview</h2>
+<span style="font-size: 13px; color: #5E5048">Colour = highest latest severity of any tree in the block. Click a block to see its trees.</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px">
+<sc-for list="{{legend}}" as="l" hint-placeholder-count="5">
+<span style="display: inline-flex; gap: 6px; align-items: center; padding: 4px 10px; border-radius: 999px; background: {{l.bg}}; color: {{l.fg}}; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{l.dot}}"></span>{{l.label}}</span>
+</sc-for>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+<sc-for list="{{blocks}}" as="b" hint-placeholder-count="5">
+<a href="Block.dc.html" style="text-decoration: none; color: #24180F; background: {{b.bg}}; border: 1px solid {{b.border}}; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-height: 44px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 20px; font-weight: 700">{{b.name}}</span>
+<span style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; font-weight: 700; color: {{b.fg}}; background: #ffffffb3; padding: 3px 9px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{b.dot}}"></span>{{b.sevLabel}}</span>
+</div>
+<span style="font-size: 13px; color: #3E322A">{{b.line1}}</span>
+<span style="font-size: 13px; color: #3E322A">{{b.line2}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+
+<section aria-labelledby="att-h" style="flex: 1 1 380px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="att-h" style="margin: 0; font-size: 19px; font-weight: 700">Trees needing attention</h2>
+<span style="font-size: 13px; color: #5E5048">Latest inspection is Medium or High</span>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{attention}}" as="t" hint-placeholder-count="4">
+<a href="TreeHistory.dc.html" style="text-decoration: none; color: #24180F; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 4px; border-top: 1px solid #EFE8E0; min-height: 44px">
+<div style="display: flex; gap: 12px; align-items: center">
+<span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 15px">{{t.code}}</span>
+<span style="font-size: 13px; color: #5E5048">{{t.detail}}</span>
+</div>
+<span style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; font-weight: 700; color: {{t.fg}}; background: {{t.bg}}; padding: 4px 10px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{t.dot}}"></span>{{t.sevLabel}} · {{t.pct}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="trend-h" style="flex: 1 1 340px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="trend-h" style="margin: 0; font-size: 19px; font-weight: 700">% pods infected per week</h2>
+<span style="font-size: 13px; color: #5E5048">Is it getting better or worse?</span>
+<div style="display: flex; gap: 14px; align-items: flex-end; height: 190px; padding-top: 10px; border-bottom: 1px solid #D6C9BB">
+<sc-for list="{{trend}}" as="w" hint-placeholder-count="5">
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 6px; justify-content: flex-end; height: 100%">
+<span style="font-size: 13px; font-weight: 600; color: #24180F">{{w.pct}}</span>
+<div style="width: 100%; max-width: 44px; height: {{w.h}}; background: {{w.color}}; border-radius: 6px 6px 0 0"></div>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 14px">
+<sc-for list="{{trend}}" as="w" hint-placeholder-count="5">
+<span style="flex: 1 1 0; text-align: center; font-size: 12px; color: #5E5048">{{w.label}}</span>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="dis-h" style="flex: 1 1 300px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="dis-h" style="margin: 0; font-size: 19px; font-weight: 700">Pods by final label</h2>
+<span style="font-size: 13px; color: #5E5048">Officer-confirmed labels, this period</span>
+<sc-for list="{{diseases}}" as="d" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>{{d.label}}</span><span style="font-weight: 600">{{d.count}}</span></div>
+<div style="height: 10px; background: #EFE8E0; border-radius: 999px"><div style="height: 10px; width: {{d.w}}; background: {{d.color}}; border-radius: 999px"></div></div>
+</div>
+</sc-for>
+</section>
+
+</div>
+
+<section aria-labelledby="rec-h" style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<h2 id="rec-h" style="margin: 0; font-size: 19px; font-weight: 700">Recent inspections</h2>
+<a href="#" style="font-weight: 600; font-size: 14px">View all inspections</a>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; min-width: 820px; font-size: 14px">
+<thead>
+<tr style="text-align: left; color: #5E5048; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px">
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Date</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Block</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Tree</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Officer</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Pods counted</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Infected</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Severity</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Status</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE"><span style="position: absolute; left: -9999px">Actions</span></th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{recent}}" as="r" hint-placeholder-count="6">
+<tr>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.date}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.block}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0; font-family: 'IBM Plex Mono', monospace; font-weight: 600">{{r.tree}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.officer}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.pods}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.infected}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0"><span style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; font-weight: 700; color: {{r.fg}}; background: {{r.bg}}; padding: 3px 9px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{r.dot}}"></span>{{r.sevLabel}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0; color: {{r.statusColor}}; font-weight: 600">{{r.status}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0; white-space: nowrap"><a href="Inspection.dc.html" style="font-weight: 600">View</a> · <a href="#">PDF</a></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<p style="margin: 0; font-size: 12px; color: #66574D">Sample data for this mockup. Severity thresholds are DEMO values (by % of pods infected): None 0% · Low &gt;0–&lt;20% · Medium 20–49% · High ≥50%. Preliminary screening, not an official diagnosis.</p>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1640}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const S = {
+      none:   { label: 'None',   bg: '#E3F1E7', border: '#B9DCC4', fg: '#1E5E37', dot: '#2E7D4F' },
+      low:    { label: 'Low',    bg: '#F6EDC8', border: '#E6D48C', fg: '#5E4900', dot: '#B8930F' },
+      medium: { label: 'Medium', bg: '#FBE1C8', border: '#F0BF8E', fg: '#7E3D00', dot: '#D9822B' },
+      high:   { label: 'High',   bg: '#F7D5D2', border: '#E8A49E', fg: '#8E1B15', dot: '#B3261E' },
+      na:     { label: 'Not inspected', bg: '#ECEDEA', border: '#D5D8D2', fg: '#3F4742', dot: '#8A918C' }
+    };
+    const sev = (k) => ({ sevLabel: S[k].label, bg: S[k].bg, border: S[k].border, fg: S[k].fg, dot: S[k].dot });
+    const blocks = [
+      { name: 'Block A', s: 'medium', line1: '6 of 8 trees inspected', line2: '17% pods infected · last 12 Oct' },
+      { name: 'Block B', s: 'none',   line1: '5 of 6 trees inspected', line2: '0% pods infected · last 9 Oct' },
+      { name: 'Block C', s: 'high',   line1: '7 of 7 trees inspected', line2: '41% pods infected · last 10 Oct' },
+      { name: 'Block D', s: 'low',    line1: '4 of 9 trees inspected', line2: '9% pods infected · last 8 Oct' },
+      { name: 'Block E', s: 'na',     line1: '0 of 5 trees inspected', line2: 'No inspection yet' }
+    ].map((b) => ({ ...b, ...sev(b.s) }));
+    const attention = [
+      { code: 'C-04', s: 'high',   pct: '60%', detail: 'Block C · 10 Oct · Hafiz' },
+      { code: 'C-02', s: 'high',   pct: '50%', detail: 'Block C · 10 Oct · Hafiz' },
+      { code: 'C-07', s: 'medium', pct: '33%', detail: 'Block C · 6 Oct · Aina' },
+      { code: 'A-04', s: 'medium', pct: '40%', detail: 'Block A · 5 Oct · Hafiz' },
+      { code: 'A-01', s: 'medium', pct: '25%', detail: 'Block A · 12 Oct · Aina' }
+    ].map((t) => ({ ...t, ...sev(t.s) }));
+    const trend = [
+      { label: 'Wk 37', v: 12 }, { label: 'Wk 38', v: 15 }, { label: 'Wk 39', v: 14 },
+      { label: 'Wk 40', v: 19 }, { label: 'Wk 41', v: 22 }
+    ].map((w, i, arr) => ({ label: w.label, pct: w.v + '%', h: (w.v * 6) + 'px', color: i === arr.length - 1 ? '#6B3A1F' : '#C9A88C' }));
+    const diseases = [
+      { label: 'Healthy', count: 67, color: '#2E7D4F' },
+      { label: 'Black pod rot', count: 15, color: '#B3261E' },
+      { label: 'Other disease', count: 4, color: '#D9822B' },
+      { label: 'Excluded (unclear photo)', count: 3, color: '#8A918C' }
+    ].map((d) => ({ ...d, w: Math.round((d.count / 67) * 100) + '%' }));
+    const recent = [
+      { date: '12 Oct 2026', block: 'A', tree: 'A-01', officer: 'Aina', pods: '4 (1 excl.)', infected: '1 · 25%', s: 'medium', status: 'Completed' },
+      { date: '12 Oct 2026', block: 'A', tree: 'A-03', officer: 'Aina', pods: '5', infected: '0 · 0%', s: 'none', status: 'Completed' },
+      { date: '10 Oct 2026', block: 'C', tree: 'C-04', officer: 'Hafiz', pods: '5', infected: '3 · 60%', s: 'high', status: 'Completed' },
+      { date: '10 Oct 2026', block: 'C', tree: 'C-02', officer: 'Hafiz', pods: '6', infected: '3 · 50%', s: 'high', status: 'Completed' },
+      { date: '9 Oct 2026', block: 'B', tree: 'B-05', officer: 'Hafiz', pods: '4', infected: '0 · 0%', s: 'none', status: 'Completed' },
+      { date: '8 Oct 2026', block: 'D', tree: 'D-03', officer: 'Aina', pods: '—', infected: '—', s: 'na', status: 'Draft' }
+    ].map((r) => ({ ...r, ...sev(r.s), sevLabel: r.s === 'na' ? 'Pending' : S[r.s].label, statusColor: r.status === 'Draft' ? '#7E3D00' : '#1E5E37' }));
+    return {
+      kpis: [
+        { label: 'Inspections completed', value: '18', sub: 'October 2026 · 1 draft pending' },
+        { label: 'Pods checked', value: '86', sub: '3 photos excluded as unclear' },
+        { label: 'Pods infected', value: '19 · 22%', sub: 'Up from 19% last week' },
+        { label: 'Trees Medium or High', value: '5', sub: 'Across 2 blocks' }
+      ],
+      legend: ['none', 'low', 'medium', 'high', 'na'].map((k) => ({ label: S[k].label, bg: S[k].bg, fg: S[k].fg, dot: S[k].dot })),
+      blocks, attention, trend, diseases, recent
+    };
+  }
+}
+</script>
+</body>
+</html>

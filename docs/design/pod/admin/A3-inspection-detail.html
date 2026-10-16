@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inspection detail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="min-height: 100vh; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E7C9A9" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 0 6 4 6 9s-2 9-6 9-6-4-6-9 2-9 6-9z"></path><path d="M12 3v18M8.5 6.5c1 3 1 8 0 11M15.5 6.5c-1 3-1 8 0 11"></path></svg>
+<span style="font-size: 18px; font-weight: 700">CocoaCheck Sabah</span>
+<span style="font-size: 12px; font-weight: 600; background: #E7C9A9; color: #3A2414; padding: 3px 10px; border-radius: 999px">ADMIN</span>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; font-size: 14px"><span>Supervisor: [NAME]</span><a href="#" style="color: #E7C9A9">Log out</a></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap">
+<nav aria-label="Admin menu" style="flex: 1 1 200px; max-width: 240px; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E3D9CE; background: #FCFAF7">
+<a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Dashboard</a>
+<a href="#" style="padding: 10px 12px; border-radius: 8px; background: #F1E4D8; color: #3B2416; font-weight: 600; text-decoration: none">Inspections</a>
+<a href="Block.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Blocks</a>
+<a href="TreeHistory.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Trees</a>
+<a href="Disease.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Disease info</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 24px">
+
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #5E5048"><a href="Main.dc.html">Dashboard</a> / <a href="Block.dc.html">Block A</a> / <a href="TreeHistory.dc.html">Tree A-01</a> / 12 Oct 2026</nav>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">Inspection · Tree <span style="font-family: 'IBM Plex Mono', monospace">A-01</span></h1>
+<p style="margin: 0; color: #5E5048">LKM Tawau Station · Block A · 12 Oct 2026 · Officer Aina · <span style="color: #1E5E37; font-weight: 600">Completed (locked)</span></p>
+</div>
+<a href="AdminReport.dc.html" style="display: inline-flex; align-items: center; gap: 8px; background: #6B3A1F; color: #fff; text-decoration: none; font-weight: 600; padding: 12px 18px; border-radius: 10px; min-height: 44px; box-sizing: border-box">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>Download PDF report</a>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<section aria-labelledby="sum-h" style="flex: 1 1 340px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="sum-h" style="margin: 0; font-size: 19px; font-weight: 700">Summary</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #5E5048">Pods counted</span><span style="font-size: 24px; font-weight: 700">4</span><span style="font-size: 12px; color: #5E5048">1 excluded</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #5E5048">Infected</span><span style="font-size: 24px; font-weight: 700">1 · 25%</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #5E5048">Severity</span><span style="display: inline-flex; width: fit-content; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; color: #7E3D00; background: #FBE1C8; padding: 5px 10px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #D9822B"></span>Medium (DEMO)</span></div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #5E5048">Officer notes: "Some pods dark near the stalk."</p>
+</section>
+
+<section aria-labelledby="act-h" style="flex: 1 1 340px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<h2 id="act-h" style="margin: 0; font-size: 19px; font-weight: 700">Recommended action</h2>
+<span style="font-size: 12px; font-weight: 700; color: #7E3D00; background: #FBE1C8; padding: 3px 9px; border-radius: 999px; width: fit-content">DEMO · to verify with LKM</span>
+<p style="margin: 0; line-height: 1.5"><b>Black pod rot (1 pod):</b> remove and dispose of infected pods; monitor nearby trees; consult an LKM officer.</p>
+</section>
+</div>
+
+<section aria-labelledby="pods-h" style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<h2 id="pods-h" style="margin: 0; font-size: 19px; font-weight: 700">Pods (5 photos)</h2>
+<span style="font-size: 13px; color: #5E5048">AI label vs officer's final label. The final label is what counts.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<sc-for list="{{pods}}" as="p" hint-placeholder-count="5">
+<div style="border: 1px solid #E3D9CE; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: #FCFAF7">
+<div style="height: 140px; background: #E4E0D6; display: flex; align-items: center; justify-content: center; color: #5A5245; font-size: 13px; font-weight: 600">[{{p.name}} photo]</div>
+<div style="padding: 12px 14px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-weight: 700">{{p.name}}</span>
+<span style="font-size: 13px; color: #5E5048">AI: {{p.ai}} · {{p.conf}}</span>
+<span style="font-size: 14px">Final: <b style="color: {{p.finalColor}}">{{p.final}}</b></span>
+<sc-if value="{{p.hasFlag}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 12px; font-weight: 700; color: {{p.flagFg}}; background: {{p.flagBg}}; padding: 3px 8px; border-radius: 999px; width: fit-content">{{p.flag}}</span>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="ai-h" style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+<h2 id="ai-h" style="margin: 0; font-size: 16px; font-weight: 700">AI check</h2>
+<span style="font-size: 14px">AI agreed with officer on <b>3 of 4</b> counted pods</span>
+<span style="font-size: 14px; color: #5E5048">Model: [MODEL VERSION]</span>
+</section>
+
+<p style="margin: 0; font-size: 12px; color: #66574D">Sample data. Preliminary screening, not an official diagnosis. Severity thresholds and recommended actions are DEMO values.</p>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const color = { 'Healthy': '#1E5E37', 'Black pod rot': '#8E1B15', 'Excluded': '#4A524D' };
+    const pods = [
+      { name: 'Pod 1', ai: 'Healthy', conf: '95%', final: 'Healthy' },
+      { name: 'Pod 2', ai: 'Black pod rot', conf: '90%', final: 'Black pod rot' },
+      { name: 'Pod 3', ai: 'Healthy', conf: '91%', final: 'Healthy' },
+      { name: 'Pod 4', ai: 'Black pod rot', conf: '52%', final: 'Healthy', flag: 'Changed by officer', flagBg: '#DCE8F5', flagFg: '#1D4A7A' },
+      { name: 'Pod 5', ai: 'Healthy', conf: '48%', final: 'Excluded', flag: 'Unclear photo · not counted', flagBg: '#ECEDEA', flagFg: '#3F4742' }
+    ].map((p) => ({ ...p, hasFlag: !!p.flag, flag: p.flag || '', flagBg: p.flagBg || '', flagFg: p.flagFg || '', finalColor: color[p.final] }));
+    return { pods };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Dependencies and build output, anywhere in the repo
+node_modules/
+dist/
+
+# Local environment files
+.env
+
+# Python (for the FastAPI backend later)
+__pycache__/
+venv/
+.venv/

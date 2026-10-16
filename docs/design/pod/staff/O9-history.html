@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inspection history</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="width: 390px; height: 1000px; overflow: hidden; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; display: flex; flex-direction: column">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 8px 16px; min-height: 60px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 18px; font-weight: 600">History</span>
+<a href="OfficerProfile.dc.html" aria-label="Profile: Aina" style="width: 44px; height: 44px; border-radius: 50%; background: #E7C9A9; color: #3A2414; display: flex; align-items: center; justify-content: center; font-weight: 700; text-decoration: none">AI</a>
+</header>
+
+<div style="background: #fff; border-bottom: 1px solid #E3D9CE; padding: 12px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="position: relative">
+<label for="hist-search" style="position: absolute; left: -9999px">Search tree code</label>
+<input id="hist-search" type="search" placeholder="Search tree code, e.g. A-01" style="width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; min-height: 46px; padding: 0 12px 0 40px; border: 1px solid #C4B4A4; border-radius: 10px; background: #fff; color: #24180F">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E5048" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="position: absolute; left: 13px; top: 14px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+</div>
+<div role="group" aria-label="Status" style="display: flex; gap: 8px">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="3">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="font: inherit; font-size: 14px; font-weight: 600; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}">{{c.label}} · {{c.count}}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="Date" style="display: flex; gap: 8px; align-items: center">
+<button type="button" style="font: inherit; font-size: 13px; font-weight: 600; min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #C4B4A4; background: #fff; color: #4A3E36">This week</button>
+<button type="button" aria-pressed="true" style="font: inherit; font-size: 13px; font-weight: 700; min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #6B3A1F; background: #F1E4D8; color: #6B3A1F">This month</button>
+<button type="button" style="font: inherit; font-size: 13px; font-weight: 600; min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #C4B4A4; background: #fff; color: #4A3E36; display: inline-flex; gap: 6px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Pick dates</button>
+</div>
+</div>
+
+<div style="flex: 1 1 auto; padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
+<span style="font-size: 13px; color: #5E5048">{{summary}}</span>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<section style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #5E5048; text-transform: uppercase; letter-spacing: 0.5px">{{g.label}}</h2>
+<sc-for list="{{g.items}}" as="d" hint-placeholder-count="2">
+<a href="{{d.href}}" style="text-decoration: none; color: #24180F; background: #fff; border: {{d.border}}; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-weight: 700"><span style="font-family: 'IBM Plex Mono', monospace">{{d.tree}}</span> · {{d.block}}</span>
+<span style="font-size: 14px; color: #5E5048">{{d.line}}</span>
+</div>
+<span style="display: inline-flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; color: {{d.fg}}; background: {{d.bg}}; padding: 4px 10px; border-radius: 999px; white-space: nowrap"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{d.dot}}"></span>{{d.tag}}</span>
+</a>
+</sc-for>
+</section>
+</sc-for>
+</div>
+<nav aria-label="Main" style="background: #fff; border-top: 1px solid #E3D9CE; padding: 6px 6px 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end">
+<a href="OfficerHome.dc.html" aria-label="Home, 1 draft" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; min-height: 52px; text-decoration: none; color: #6E5F55; font-size: 12px; font-weight: 500">
+<span style="position: relative; display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span style="position: absolute; top: -5px; right: -11px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 9px; background: #B3261E; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span></span>Home</a>
+<a href="OfficerNew.dc.html" aria-label="New inspection" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; text-decoration: none; color: #6B3A1F; font-size: 12px; font-weight: 700">
+<span style="width: 56px; height: 56px; margin-top: -26px; border-radius: 50%; background: #6B3A1F; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 5px #fff"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>New</a>
+<a href="OfficerHistory.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px; min-height: 52px; text-decoration: none; color: #6B3A1F; font-size: 12px; font-weight: 700">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>History</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { status: 'all' }; }
+  renderVals() {
+    const S = {
+      none:   { tag: 'None',   bg: '#E3F1E7', fg: '#1E5E37', dot: '#2E7D4F' },
+      low:    { tag: 'Low',    bg: '#F6EDC8', fg: '#5E4900', dot: '#B8930F' },
+      medium: { tag: 'Medium', bg: '#FBE1C8', fg: '#7E3D00', dot: '#D9822B' },
+      draft:  { tag: 'Draft',  bg: '#F1E4D8', fg: '#6B3A1F', dot: '#6B3A1F' }
+    };
+    const all = [
+      { day: 'Yesterday · 12 Oct', tree: 'A-01', block: 'Block A', st: 'completed', s: 'medium', line: '4 pods · 25% infected' },
+      { day: 'Yesterday · 12 Oct', tree: 'A-03', block: 'Block A', st: 'completed', s: 'none', line: '5 pods · 0% infected' },
+      { day: '8 Oct', tree: 'D-03', block: 'Block D', st: 'draft', s: 'draft', line: '3 photos · not analysed yet' },
+      { day: '6 Oct', tree: 'C-07', block: 'Block C', st: 'completed', s: 'medium', line: '6 pods · 33% infected' },
+      { day: '3 Oct', tree: 'A-05', block: 'Block A', st: 'completed', s: 'none', line: '4 pods · 0% infected' },
+      { day: '3 Oct', tree: 'A-06', block: 'Block A', st: 'completed', s: 'low', line: '6 pods · 17% infected' }
+    ];
+    const status = this.state.status;
+    const shown = all.filter((x) => status === 'all' || x.st === status).map((x) => ({
+      ...x, ...S[x.s],
+      href: x.st === 'draft' ? 'OfficerPhotos.dc.html' : 'OfficerReportView.dc.html',
+      border: x.st === 'draft' ? '1px dashed #D9822B' : '1px solid #E3D9CE'
+    }));
+    const groups = [];
+    shown.forEach((x) => {
+      const last = groups.at(-1);
+      if (last && last.label === x.day) last.items.push(x); else groups.push({ label: x.day, items: [x] });
+    });
+    const defs = [['all', 'All'], ['draft', 'Drafts'], ['completed', 'Completed']];
+    const chips = defs.map(([id, label]) => {
+      const on = status === id;
+      return { label, count: id === 'all' ? all.length : all.filter((x) => x.st === id).length,
+        pressed: on ? 'true' : 'false', bg: on ? '#6B3A1F' : '#fff', fg: on ? '#fff' : '#4A3E36', border: on ? '#6B3A1F' : '#C4B4A4',
+        pick: () => this.setState({ status: id }) };
+    });
+    return { chips, groups, summary: shown.length + (shown.length === 1 ? ' inspection' : ' inspections') + ' · October 2026 · newest first' };
+  }
+}
+</script>
+</body>
+</html>

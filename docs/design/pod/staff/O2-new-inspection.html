@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New inspection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="width: 390px; height: 844px; overflow: hidden; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; display: flex; flex-direction: column">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 8px 8px; min-height: 60px; box-sizing: border-box; display: flex; align-items: center; gap: 4px">
+<a href="OfficerHome.dc.html" aria-label="Back" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #F7F2EC"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></a>
+<span style="font-size: 18px; font-weight: 600">New inspection</span>
+</header>
+
+<div style="padding: 14px 16px 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #5E5048">Step 1 of 4 · Details</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px"><span style="height: 5px; border-radius: 3px; background: #6B3A1F"></span><span style="height: 5px; border-radius: 3px; background: #E3D6C8"></span><span style="height: 5px; border-radius: 3px; background: #E3D6C8"></span><span style="height: 5px; border-radius: 3px; background: #E3D6C8"></span></div>
+</div>
+
+<form style="flex: 1 1 auto; padding: 18px 16px; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Farm
+<select style="font: inherit; font-size: 16px; font-weight: 400; min-height: 48px; padding: 0 12px; border: 1px solid #C4B4A4; border-radius: 10px; background: #fff; color: #24180F"><option>LKM Tawau Station</option></select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Block
+<select style="font: inherit; font-size: 16px; font-weight: 400; min-height: 48px; padding: 0 12px; border: 1px solid #C4B4A4; border-radius: 10px; background: #fff; color: #24180F"><option>Block A</option></select>
+</label>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="tree" style="font-size: 14px; font-weight: 600">Tree code</label>
+<input id="tree" value="A-01" style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 600; min-height: 48px; padding: 0 12px; border: 2px solid #6B3A1F; border-radius: 10px; background: #fff; color: #24180F; box-sizing: border-box">
+<span style="display: inline-flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; color: #1E5E37; background: #E3F1E7; padding: 6px 10px; border-radius: 8px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Existing tree · last inspected 12 Sep 2026</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="date" style="font-size: 14px; font-weight: 600">Visit date</label>
+<input id="date" value="12 Oct 2026" style="font: inherit; font-size: 16px; min-height: 48px; padding: 0 12px; border: 1px solid #C4B4A4; border-radius: 10px; background: #fff; color: #24180F; box-sizing: border-box">
+<span style="font-size: 13px; color: #5E5048">Today by default. You can pick an earlier date, not a future one.</span>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Notes (optional)
+<textarea rows="3" style="font: inherit; font-size: 16px; font-weight: 400; padding: 10px 12px; border: 1px solid #C4B4A4; border-radius: 10px; background: #fff; color: #24180F; resize: none">Some pods dark near the stalk</textarea>
+</label>
+</form>
+
+<div style="padding: 12px 16px 20px; background: #fff; border-top: 1px solid #E3D9CE">
+<a href="OfficerPhotos.dc.html" style="display: flex; align-items: center; justify-content: center; background: #6B3A1F; color: #fff; text-decoration: none; font-size: 17px; font-weight: 600; min-height: 52px; border-radius: 12px">Next: add pod photos</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

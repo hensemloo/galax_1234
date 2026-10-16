@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Change pod label</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="width: 390px; height: 844px; overflow: hidden; background: #6E6058; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; display: flex; flex-direction: column; justify-content: flex-end">
+
+<section role="dialog" aria-labelledby="sheet-h" style="background: #fff; border-radius: 20px 20px 0 0; padding: 12px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 44px; height: 5px; border-radius: 3px; background: #D6C9BB; align-self: center"></span>
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 id="sheet-h" style="margin: 0; font-size: 20px; font-weight: 700">Check Pod 5</h2>
+<a href="OfficerReview.dc.html" aria-label="Close" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #24180F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a>
+</div>
+
+<div style="height: 220px; border-radius: 12px; background: #9AA88A; display: flex; align-items: flex-end; justify-content: space-between; padding: 10px; box-sizing: border-box">
+<span style="font-size: 13px; font-weight: 700; color: #fff; background: #24180Fb3; padding: 3px 8px; border-radius: 6px">[Pod 5 photo · pinch to zoom]</span>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; background: #FBE1C8; color: #5C2D00; border-radius: 10px; padding: 10px 12px; font-size: 14px">
+<span>AI suggests <b>Healthy</b></span>
+<span style="font-weight: 700">48% · unsure</span>
+</div>
+
+<fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 14px; font-weight: 700; margin-bottom: 8px">Your final label</legend>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 14px; border: 1px solid #C4B4A4; border-radius: 12px">
+<input type="radio" name="label" style="width: 20px; height: 20px; accent-color: #6B3A1F">
+<span style="font-weight: 600; color: #1E5E37">Healthy</span>
+</label>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 14px; border: 1px solid #C4B4A4; border-radius: 12px">
+<input type="radio" name="label" style="width: 20px; height: 20px; accent-color: #6B3A1F">
+<span style="font-weight: 600; color: #8E1B15">Black pod rot</span>
+<a href="Disease.dc.html" style="margin-left: auto; font-size: 13px">What is this?</a>
+</label>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 14px; border: 2px solid #6B3A1F; border-radius: 12px; background: #F6EEE6">
+<input type="radio" name="label" checked style="width: 20px; height: 20px; accent-color: #6B3A1F">
+<span style="display: flex; flex-direction: column"><span style="font-weight: 600">Unclear photo, exclude</span><span style="font-size: 12px; color: #5E5048">Kept for the record, not counted</span></span>
+</label>
+</fieldset>
+
+<a href="OfficerReview.dc.html" style="display: flex; align-items: center; justify-content: center; background: #6B3A1F; color: #fff; text-decoration: none; font-size: 17px; font-weight: 600; min-height: 52px; border-radius: 12px">Save</a>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin report view</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="min-height: 100vh; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E7C9A9" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 0 6 4 6 9s-2 9-6 9-6-4-6-9 2-9 6-9z"/><path d="M12 3v18M8.5 6.5c1 3 1 8 0 11M15.5 6.5c-1 3-1 8 0 11"/></svg>
+<span style="font-size: 18px; font-weight: 700">CocoaCheck Sabah</span>
+<span style="font-size: 12px; font-weight: 600; background: #E7C9A9; color: #3A2414; padding: 3px 10px; border-radius: 999px">ADMIN</span>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; font-size: 14px"><span>Supervisor: [NAME]</span><a href="#" style="color: #E7C9A9">Log out</a></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap">
+<nav aria-label="Admin menu" style="flex: 1 1 200px; max-width: 240px; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E3D9CE; background: #FCFAF7">
+<a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Dashboard</a>
+<a href="#" style="padding: 10px 12px; border-radius: 8px; background: #F1E4D8; color: #3B2416; font-weight: 600; text-decoration: none">Inspections</a>
+<a href="Block.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Blocks</a>
+<a href="TreeHistory.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Trees</a>
+<a href="Disease.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Disease info</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 20px">
+
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #5E5048"><a href="Main.dc.html">Dashboard</a> / <a href="TreeHistory.dc.html">Tree A-01</a> / <a href="Inspection.dc.html">12 Oct 2026</a> / Report</nav>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">Inspection report · <span style="font-family: 'IBM Plex Mono', monospace">A-01</span></h1>
+<p style="margin: 0; color: #5E5048">Block A · 12 Oct 2026 · Officer Aina · A4, 1 page</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="Inspection.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #C4B4A4; background: #fff; color: #24180F; text-decoration: none; font-weight: 600; box-sizing: border-box">Back to inspection</a>
+<a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 10px; border: 2px solid #6B3A1F; background: #fff; color: #6B3A1F; text-decoration: none; font-weight: 600; box-sizing: border-box">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>Print</a>
+<a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: #6B3A1F; color: #fff; text-decoration: none; font-weight: 600">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download PDF</a>
+</div>
+</div>
+
+<div style="background: #E3D8CB; border-radius: 12px; padding: 32px 16px; overflow-x: auto; display: flex; justify-content: center">
+<div style="width: 794px; flex: none; background: #fff; border: 1px solid #CDBEAF">
+<dc-import name="ReportA4" hint-size="794px,1123px"></dc-import>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1460}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

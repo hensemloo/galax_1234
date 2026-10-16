@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+/* Design tokens. Use these in components (bg-primary, text-text-muted, ...). No raw hex codes.
+ *
+ * Two kinds of colour:
+ * - BRAND (cocoa brown + neutrals): primary, primary-dark, primary-soft, primary-light, accent,
+ *   bg, surface, border, text, text-muted. Use for layout, buttons, headers, links.
+ * - STATUS (traffic lights): success / warning / danger and the sev-* severity tokens.
+ *   Use only to show a result. Healthy / None is green on purpose, even though the brand is brown.
+ */
+@theme {
+  /* Brand */
+  --color-primary: #5a3825;
+  --color-primary-dark: #2b1d16;
+  --color-accent: #d9a441;
+  --color-bg: #faf6f0;
+  --color-surface: #ffffff;
+  --color-border: #e8dfd3;
+  --color-text: #2b1d16;
+  --color-text-muted: #6b5b4e;
+  /* Light brown tints: role badge and draft tag (soft), avatar circle (light). */
+  --color-primary-soft: #f1e4d8;
+  --color-primary-light: #e7c9a9;
+
+  /* Status: general messages */
+  --color-success: #3e6b48;
+  --color-warning: #b8741a;
+  --color-danger: #a63d32;
+
+  /* Status: severity levels (DEMO thresholds live in utils/severity.js).
+     Each level has a light background, a dark text colour (contrast >= 6.5:1 on its bg)
+     and a stronger dot colour. Always show the text too, never colour alone.
+     na = not inspected yet / not analysed. */
+  --color-sev-none-bg: #e3f1e7;
+  --color-sev-none-text: #1e5e37;
+  --color-sev-none-dot: #2e7d4f;
+  --color-sev-low-bg: #f6edc8;
+  --color-sev-low-text: #5e4900;
+  --color-sev-low-dot: #b8930f;
+  --color-sev-medium-bg: #fbe1c8;
+  --color-sev-medium-text: #7e3d00;
+  --color-sev-medium-dot: #d9822b;
+  --color-sev-high-bg: #f7d5d2;
+  --color-sev-high-text: #8e1b15;
+  --color-sev-high-dot: #b3261e;
+  --color-sev-na-bg: #ebe8e4;
+  --color-sev-na-text: #4a4540;
+  --color-sev-na-dot: #8a837c;
+  /* Tile borders (block and tree tiles, coloured background). */
+  --color-sev-none-border: #b9dcc4;
+  --color-sev-low-border: #e6d48c;
+  --color-sev-medium-border: #f0bf8e;
+  --color-sev-high-border: #e8a49e;
+  --color-sev-na-border: #d6d1cb;
+
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* `rounded` with no size uses this value. */
+  --radius: 8px;
+}
+
+/* Hides the scrollbar but keeps scrolling, for swipeable rows (stats, filter chips). */
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Faint cocoa doodle pattern behind a page (page backgrounds only, never on cards or the PDF).
+   The pattern sits on ::before so its opacity and blur do not affect the page content.
+   isolation: isolate keeps z-index -1 behind this element's content, not behind the whole page. */
+@utility cc-bg {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/cocoa-pattern.webp');
+    background-repeat: repeat;
+    background-size: 560px auto;
+    opacity: 0.08;
+    filter: blur(1.5px);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+  }
+}
+
+/* ---------- Printing (A4 report, saved as PDF from the browser's print dialog) ---------- */
+
+/* One A4 page with 12 mm margins. The report layout (components/inspection/InspectionReport.jsx)
+   is sized to fit inside: 186 mm x 273 mm. */
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+/* Keeps background colours (e.g. the severity box) when printing. Browsers drop them by default. */
+.print-exact {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  /* Hidden on paper: on-screen buttons such as "Back". */
+  .no-print {
+    display: none !important;
+  }
+
+  /* White paper, no cocoa pattern. */
+  html,
+  body {
+    background: var(--color-surface);
+  }
+}

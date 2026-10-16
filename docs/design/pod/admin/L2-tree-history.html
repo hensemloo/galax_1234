@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tree A-01 history</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="min-height: 100vh; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E7C9A9" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 0 6 4 6 9s-2 9-6 9-6-4-6-9 2-9 6-9z"></path><path d="M12 3v18M8.5 6.5c1 3 1 8 0 11M15.5 6.5c-1 3-1 8 0 11"></path></svg>
+<span style="font-size: 18px; font-weight: 700">CocoaCheck Sabah</span>
+<span style="font-size: 12px; font-weight: 600; background: #E7C9A9; color: #3A2414; padding: 3px 10px; border-radius: 999px">ADMIN</span>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; font-size: 14px"><span>Supervisor: [NAME]</span><a href="#" style="color: #E7C9A9">Log out</a></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap">
+<nav aria-label="Admin menu" style="flex: 1 1 200px; max-width: 240px; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E3D9CE; background: #FCFAF7">
+<a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Dashboard</a>
+<a href="#" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Inspections</a>
+<a href="Block.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Blocks</a>
+<a href="TreeHistory.dc.html" style="padding: 10px 12px; border-radius: 8px; background: #F1E4D8; color: #3B2416; font-weight: 600; text-decoration: none">Trees</a>
+<a href="Disease.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Disease info</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 24px">
+
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #5E5048"><a href="Main.dc.html">Dashboard</a> / <a href="Block.dc.html">Block A</a> / Tree A-01</nav>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">Tree <span style="font-family: 'IBM Plex Mono', monospace">A-01</span></h1>
+<p style="margin: 0; color: #5E5048">LKM Tawau Station · Block A · 3 inspections since Aug 2026</p>
+</div>
+<span style="display: inline-flex; gap: 8px; align-items: center; font-size: 14px; font-weight: 700; color: #7E3D00; background: #FBE1C8; padding: 8px 14px; border-radius: 999px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #D9822B"></span>Latest: Medium · 25%</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+
+<section aria-labelledby="chart-h" style="flex: 1 1 360px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="chart-h" style="margin: 0; font-size: 19px; font-weight: 700">% pods infected over time</h2>
+<div style="display: flex; gap: 28px; align-items: flex-end; height: 200px; padding: 0 12px; border-bottom: 1px solid #D6C9BB">
+<sc-for list="{{history}}" as="h" hint-placeholder-count="3">
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 6px; justify-content: flex-end; height: 100%">
+<span style="font-size: 13px; font-weight: 600">{{h.pct}}</span>
+<div style="width: 100%; max-width: 64px; height: {{h.barH}}; background: {{h.dot}}; border-radius: 6px 6px 0 0"></div>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 28px; padding: 0 12px">
+<sc-for list="{{history}}" as="h" hint-placeholder-count="3">
+<span style="flex: 1 1 0; text-align: center; font-size: 12px; color: #5E5048">{{h.short}} · {{h.sevLabel}}</span>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="note-h" style="flex: 1 1 280px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="note-h" style="margin: 0; font-size: 19px; font-weight: 700">What changed</h2>
+<p style="margin: 0; line-height: 1.5">Infection went from <b>0% in September</b> to <b>25% in October</b>. Black pod rot was found on 1 pod.</p>
+<p style="margin: 0; line-height: 1.5; color: #5E5048">Recommended action (DEMO, to verify with LKM): remove and dispose of infected pods; monitor nearby trees.</p>
+</section>
+
+</div>
+
+<section aria-labelledby="list-h" style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="list-h" style="margin: 0; font-size: 19px; font-weight: 700">All inspections of A-01</h2>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; min-width: 760px; font-size: 14px">
+<thead>
+<tr style="text-align: left; color: #5E5048; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px">
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Date</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Officer</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Pods counted</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Infected</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Disease found</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE">Severity</th>
+<th style="padding: 10px 8px; border-bottom: 1px solid #E3D9CE"><span style="position: absolute; left: -9999px">Actions</span></th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<tr>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.date}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.officer}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.pods}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.infected}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0">{{r.disease}}</td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0"><span style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; font-weight: 700; color: {{r.fg}}; background: {{r.bg}}; padding: 3px 9px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{r.dot}}"></span>{{r.sevLabel}}</span></td>
+<td style="padding: 12px 8px; border-bottom: 1px solid #EFE8E0; white-space: nowrap"><a href="Inspection.dc.html" style="font-weight: 600">View</a> · <a href="#">PDF</a></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<p style="margin: 0; font-size: 12px; color: #66574D">Sample data. Severity thresholds are DEMO values. Preliminary screening, not an official diagnosis.</p>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const S = {
+      none:   { label: 'None',   bg: '#E3F1E7', fg: '#1E5E37', dot: '#2E7D4F' },
+      low:    { label: 'Low',    bg: '#F6EDC8', fg: '#5E4900', dot: '#B8930F' },
+      medium: { label: 'Medium', bg: '#FBE1C8', fg: '#7E3D00', dot: '#D9822B' },
+      high:   { label: 'High',   bg: '#F7D5D2', fg: '#8E1B15', dot: '#B3261E' }
+    };
+    const data = [
+      { date: '14 Aug 2026', short: 'Aug', officer: 'Hafiz', pods: '6', infected: '1 · 17%', v: 17, disease: 'Black pod rot (1)', s: 'low' },
+      { date: '12 Sep 2026', short: 'Sep', officer: 'Aina', pods: '5', infected: '0 · 0%', v: 0, disease: '—', s: 'none' },
+      { date: '12 Oct 2026', short: 'Oct', officer: 'Aina', pods: '4 (1 excluded)', infected: '1 · 25%', v: 25, disease: 'Black pod rot (1)', s: 'medium' }
+    ];
+    const withSev = data.map((d) => ({ ...d, pct: d.v + '%', barH: Math.max(d.v * 6, 4) + 'px', sevLabel: S[d.s].label, bg: S[d.s].bg, fg: S[d.s].fg, dot: S[d.s].dot }));
+    return { history: withSev, rows: withSev.slice().reverse() };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/* Design tokens. Use these in components (bg-primary, text-text-muted, ...). No raw hex codes. */
+@theme {
+  --color-primary: #5a3825;
+  --color-primary-dark: #2b1d16;
+  --color-accent: #d9a441;
+  --color-bg: #faf6f0;
+  --color-surface: #ffffff;
+  --color-border: #e8dfd3;
+  --color-text: #2b1d16;
+  --color-text-muted: #6b5b4e;
+  --color-success: #3e6b48;
+  --color-warning: #b8741a;
+  --color-danger: #a63d32;
+
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* `rounded` with no size uses this value. */
+  --radius: 8px;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+  }
+}

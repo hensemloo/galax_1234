@@ -1,0 +1,4 @@
+# CocoaCheck Sabah
+
+CocoaCheck Sabah is a web app that helps field officers check cocoa trees for pod disease. The officer photographs the pods of one tree (one pod per photo), an AI model suggests a label for each pod (for example Healthy or Black pod rot) with a confidence, and the officer reviews and confirms every result. The app then calculates the percentage of pods infected, a severity level and a recommended action from a disease table, and produces a locked PDF report, while supervisors monitor all inspections on a desktop dashboard. It is a decision-support tool for preliminary screening, not an official diagnosis; severity thresholds and actions are demo values until verified by Lembaga Koko Malaysia (LKM). Built by the Synergy IT Team for Gamuda AI Academy Sabah, Cohort 5. See [frontend/README.md](frontend/README.md) to run the app.
+ONE TWO THREE

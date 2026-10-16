@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Disease info</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F2EC}
+a{color:#6B3A1F}a:hover{color:#4A2814}
+.cc-bg{position:relative;isolation:isolate}
+.cc-bg::before{content:"";position:absolute;inset:0;background-image:url(/_blob/7e3b7b9c488c1c489635a472a1782574);background-size:560px auto;background-repeat:repeat;opacity:0.08;filter:blur(1.5px);pointer-events:none;z-index:-1}
+</style>
+</helmet>
+<div class="cc-bg" style="min-height: 100vh; background: #F7F2EC; color: #24180F; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px">
+
+<header style="background: #3B2416; color: #F7F2EC; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between">
+<div style="display: flex; gap: 12px; align-items: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E7C9A9" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 0 6 4 6 9s-2 9-6 9-6-4-6-9 2-9 6-9z"></path><path d="M12 3v18M8.5 6.5c1 3 1 8 0 11M15.5 6.5c-1 3-1 8 0 11"></path></svg>
+<span style="font-size: 18px; font-weight: 700">CocoaCheck Sabah</span>
+<span style="font-size: 12px; font-weight: 600; background: #E7C9A9; color: #3A2414; padding: 3px 10px; border-radius: 999px">ADMIN</span>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; font-size: 14px"><span>Supervisor: [NAME]</span><a href="#" style="color: #E7C9A9">Log out</a></div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap">
+<nav aria-label="Admin menu" style="flex: 1 1 200px; max-width: 240px; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #E3D9CE; background: #FCFAF7">
+<a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Dashboard</a>
+<a href="#" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Inspections</a>
+<a href="Block.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Blocks</a>
+<a href="TreeHistory.dc.html" style="padding: 10px 12px; border-radius: 8px; color: #4A3E36; text-decoration: none">Trees</a>
+<a href="Disease.dc.html" style="padding: 10px 12px; border-radius: 8px; background: #F1E4D8; color: #3B2416; font-weight: 600; text-decoration: none">Disease info</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">Disease info</h1>
+<p style="margin: 0; color: #5E5048; max-width: 760px; line-height: 1.5">The pod conditions CocoaCheck's AI can suggest, what they look like, and the recommended action. The AI only gives the label; the advice below comes from this table, not from the AI.</p>
+</div>
+
+<div style="background: #FBE1C8; color: #5C2D00; border-radius: 12px; padding: 14px 18px; font-size: 14px; line-height: 1.5; display: flex; gap: 12px; align-items: flex-start">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>
+<span><b>DEMO content.</b> Descriptions and recommended actions are placeholders until verified by Lembaga Koko Malaysia (LKM). Read-only in this version.</span>
+</div>
+
+<section aria-label="Diseases" style="display: flex; flex-direction: column; gap: 18px">
+<sc-for list="{{diseases}}" as="d" hint-placeholder-count="2">
+<article style="background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 1 1 260px; max-width: 340px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="height: 150px; background: #E4E0D6; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; color: #5A5245; font-size: 13px; font-weight: 600">[Example photo 1]</div>
+<div style="height: 150px; background: #E4E0D6; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; color: #5A5245; font-size: 13px; font-weight: 600">[Example photo 2]</div>
+</div>
+<div style="flex: 999 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 700">{{d.name}}</h2>
+<span style="font-size: 14px; color: #5E5048">{{d.malay}} · code <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600">{{d.code}}</span></span>
+</div>
+<span style="font-size: 12px; font-weight: 700; color: {{d.srcFg}}; background: {{d.srcBg}}; padding: 4px 10px; border-radius: 999px">{{d.source}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5E5048">Cause</span><span style="line-height: 1.5">{{d.cause}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5E5048">How it looks on the pod</span><span style="line-height: 1.5">{{d.looks}}</span></div>
+</div>
+<div style="background: #F6EEE6; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #6B3A1F">Recommended action</span>
+<span style="line-height: 1.5">{{d.action}}</span>
+</div>
+</div>
+</article>
+</sc-for>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+
+<section aria-labelledby="sev-h" style="flex: 1 1 380px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="sev-h" style="margin: 0; font-size: 19px; font-weight: 700">Severity levels (DEMO)</h2>
+<span style="font-size: 13px; color: #5E5048">Based on % of counted pods on the tree that are infected. Excluded photos are not counted.</span>
+<table style="width: 100%; border-collapse: collapse; font-size: 14px">
+<thead><tr style="text-align: left; color: #5E5048; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px"><th style="padding: 8px; border-bottom: 1px solid #E3D9CE">Severity</th><th style="padding: 8px; border-bottom: 1px solid #E3D9CE">% pods infected</th></tr></thead>
+<tbody>
+<sc-for list="{{levels}}" as="l" hint-placeholder-count="4">
+<tr>
+<td style="padding: 10px 8px; border-bottom: 1px solid #EFE8E0"><span style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; font-weight: 700; color: {{l.fg}}; background: {{l.bg}}; padding: 3px 9px; border-radius: 999px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{l.dot}}"></span>{{l.label}}</span></td>
+<td style="padding: 10px 8px; border-bottom: 1px solid #EFE8E0">{{l.rule}}</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</section>
+
+<section aria-labelledby="lim-h" style="flex: 1 1 380px; min-width: 0; background: #fff; border: 1px solid #E3D9CE; border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 id="lim-h" style="margin: 0; font-size: 19px; font-weight: 700">What the AI can and can't do</h2>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; line-height: 1.5">
+<li>It only sees the <b>outside of the pod</b> in the photo.</li>
+<li>It only recognises the conditions listed above. Anything else may be labelled wrongly.</li>
+<li>Blurry, dark or cluttered photos reduce accuracy. Exclude unclear photos.</li>
+<li>The <b>officer's final label</b> is what counts, not the AI's suggestion.</li>
+<li>This is preliminary screening, <b>not an official diagnosis</b>.</li>
+</ul>
+</section>
+
+</div>
+
+<p style="margin: 0; font-size: 12px; color: #66574D">Disease list depends on the final AI dataset; more conditions may be added after the LKM field trip.</p>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const demo = { source: 'DEMO · to verify with LKM', srcBg: '#FBE1C8', srcFg: '#7E3D00' };
+    const diseases = [
+      { name: 'Healthy', malay: '[Malay name]', code: 'healthy',
+        cause: 'No disease visible on the pod surface.',
+        looks: 'Even colour for its ripeness stage (green, yellow or red-orange); no dark spreading patches or rot.',
+        action: 'No action needed. Continue routine monitoring.', ...demo },
+      { name: 'Black pod rot', malay: 'Reput buah hitam (to verify)', code: 'black_pod',
+        cause: 'Phytophthora, a fungus-like organism. Spreads more in wet, humid conditions.',
+        looks: 'Brown to black patch that spreads across the pod; white powdery growth may appear on older patches.',
+        action: 'Remove and dispose of infected pods away from the trees; monitor nearby trees; consult an LKM officer.', ...demo }
+    ];
+    const levels = [
+      { label: 'None',   rule: '0%',            bg: '#E3F1E7', fg: '#1E5E37', dot: '#2E7D4F' },
+      { label: 'Low',    rule: 'More than 0%, under 20%', bg: '#F6EDC8', fg: '#5E4900', dot: '#B8930F' },
+      { label: 'Medium', rule: '20% to 49%',    bg: '#FBE1C8', fg: '#7E3D00', dot: '#D9822B' },
+      { label: 'High',   rule: '50% or more',   bg: '#F7D5D2', fg: '#8E1B15', dot: '#B3261E' }
+    ];
+    return { diseases, levels };
+  }
+}
+</script>
+</body>
+</html>
